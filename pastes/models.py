@@ -21,4 +21,4 @@ class Paste (models.Model):
     syntax = models.CharField(max_length=4, choices=SYNTAX_OPTIONS, default=TEXT_SYNTAX)
     private = models.BooleanField(default=False)
     body = models.TextField()
-    created_at = models.DateTimeField(auto_created=True)
+    created_at = models.DateTimeField(auto_now_add=True)
