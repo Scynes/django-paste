@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import user
+from django.contrib.auth.models import User
 
 class Paste (models.Model):
     
@@ -16,6 +16,7 @@ class Paste (models.Model):
     ]
 
     # Model fields
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=255)
     syntax = models.CharField(max_length=4, choices=SYNTAX_OPTIONS, default=TEXT_SYNTAX)
     private = models.BooleanField(default=False)
