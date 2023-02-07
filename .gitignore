@@ -6,3 +6,4 @@ Pipfile.lock
 
 
 migrations
+db.sqlite3
