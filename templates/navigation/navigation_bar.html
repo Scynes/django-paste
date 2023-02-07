@@ -1,0 +1,40 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Django Paste</a>
+        <a href="#" class="sidenav-trigger" data-target="mobile-bar">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                <a href="#">New Paste</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<ul id="mobile-bar" class="sidenav">
+    <li>
+        <a href="#">New Paste</a>
+    </li>
+    <li>
+        <a href="#">About</a>
+    </li>
+    <li>
+        <a href="#">
+            Login
+        </a>
+    </li>
+</ul>
+
+<script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+    });
+</script>
