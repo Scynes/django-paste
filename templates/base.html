@@ -8,30 +8,43 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <style>
-            body, height {
+            body {
+                display: flex;
                 min-height: 100vh;
+                flex-direction: column;
+                flex: 1;
+            }
+
+            #header-wrapper {
+                flex: auto;
+            }
+
+            #main-wrapper {
+                flex: 1;
+            }
+
+            #footer-wrapper {
+                flex: 0;
             }
         </style>
         <title>Django Paste</title>
     </head>
     <body>
-        <div class="container">
-            <div class="row">
-                <header>
-                    {% include 'navigation/navigation_bar.html' %}
-                </header>
-            </div>
-            <div class="row">
-                <main>
-                    {% block content %}
-                    {% endblock %}
-                </main>
-            </div>
-            <div class="row">
-                <footer>
-                    {% include 'footer/footer.html' %}
-                </footer>
-            </div>
+        <div id="header-wrapper">
+            <header>
+                {% include 'navigation/navigation_bar.html' %}
+            </header>
+        </div>
+        <div id="main-wrapper">
+            <main>
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
+        <div id="footer-wrapper">
+            <footer class="page-footer">
+                {% include 'footer/footer.html' %}
+            </footer>
         </div>
     </body>
 </html>
