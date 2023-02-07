@@ -1,9 +1,13 @@
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import render
 from django.views.generic import View
 
 from .forms import PasteForm
+from .models import Paste
+
+from links.models import Link
 
 class PasteUploadView(View):
     
@@ -25,11 +29,19 @@ class PasteUploadView(View):
 
         # Check if there's a user associated
         if isinstance(request.user, User):
-            
+
             paste.user = request.user
 
-        # Save the paste
         paste.save()
+
+        # Save the link
+        link = Link.create(ContentType.objects.get_for_model(Paste), paste.id)
+        link.save()
+
+        # Save the paste
+        paste.link = link
+        paste.save()
+
         
         return HttpResponse(paste)
 

@@ -2,7 +2,7 @@ from django import forms
 from .models import Paste
 
 # Defines the fields we don't want to render on a form...
-invalid_fields = ['created_at', 'user']
+invalid_fields = ['created_at', 'user', 'link']
 
 class PasteForm(forms.ModelForm):
 
