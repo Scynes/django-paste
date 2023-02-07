@@ -18,7 +18,7 @@ class Paste (models.Model):
     # Model fields
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=255)
-    syntax = models.CharField(max_length=4, choices=SYNTAX_OPTIONS, default=TEXT_SYNTAX)
+    syntax = models.CharField(max_length=4, choices=SYNTAX_OPTIONS, default=TEXT_SYNTAX, verbose_name='Highlight')
     private = models.BooleanField(default=False)
-    body = models.TextField()
+    body = models.TextField(verbose_name='Paste')
     created_at = models.DateTimeField(auto_now_add=True)
