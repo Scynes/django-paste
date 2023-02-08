@@ -4,8 +4,7 @@
 
     <form action="#" method="POST">
         {% csrf_token %}
-        {{ form.private }}
-        {{ form.body }}
+        {{ form }}
         <input type="submit" value="Submit">
     </form>
 
