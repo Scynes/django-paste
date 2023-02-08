@@ -9,6 +9,27 @@ from .models import Paste
 
 from links.models import Link
 
+class PasteView(View):
+
+    def get(self, request, id):
+
+        # Query for finding a matching paste short_uuid -> id
+        link_result = Link.objects.filter(short_uuid = id).first()
+
+        # Check if the link_result exists
+        if link_result:
+
+            # Get the Paste object associated with the Link
+            paste = link_result.content_object
+
+            return HttpResponse(paste.body)
+
+        else:
+
+            return HttpResponse('No paste was found!')
+
+        
+
 class PasteUploadView(View):
     
     def get(self, request):
@@ -42,7 +63,4 @@ class PasteUploadView(View):
         paste.link = link
         paste.save()
 
-        
         return HttpResponse(paste)
-
-
