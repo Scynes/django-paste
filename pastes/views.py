@@ -9,6 +9,8 @@ from .models import Paste
 
 from links.models import Link
 
+# TODO I think that this should be a CBV for Link
+# that way, it becomes modular and decoupled.
 class PasteView(View):
 
     def get(self, request, id):
@@ -27,8 +29,6 @@ class PasteView(View):
         else:
 
             return HttpResponse('No paste was found!')
-
-        
 
 class PasteUploadView(View):
     
