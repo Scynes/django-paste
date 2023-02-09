@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo:wght@100&family=Inconsolata&family=Lacquer&family=Montserrat+Alternates:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@300;500&display=swap');
 
 /* =========== *
  *  CSS RESET  *
@@ -36,11 +36,14 @@ body, html {
     --primary-font-col: white;
     --secondary-font-col: red;
     /* Font */
-    --primary-font: 'Montserrat Alternates', sans-serif;
+    --primary-font: 'M PLUS Code Latin', sans-serif;
+    /* Margins */
+    --margin-bottom-gap: 1rem;
 }
 
 * {
     font-family: var(--primary-font);
+    font-weight: 300;
 }
 
 a {
@@ -49,7 +52,6 @@ a {
 }
 
 nav {
-    margin-bottom: 1rem;
     box-shadow: 0 10px 0.75rem var(--bar-background-col-shadow);
 }
 
@@ -62,6 +64,10 @@ nav {
 
 .height-100 {
     height: 100%;
+}
+
+.margin-bottom-gap {
+    margin-bottom: var(--margin-bottom-gap);
 }
 
 .text-center {
@@ -135,6 +141,15 @@ footer > h2 {
     grid-template-rows: auto 1fr auto;
 }
 
+#main-content-container {
+    margin-bottom: 1rem;
+}
+
+#new-paste-container {
+    grid-template-columns: 3fr 1fr;
+    min-width: 80%;
+}
+
 .nav-item {
     min-width: 7rem;
     line-height: 4.5rem;
@@ -146,6 +161,7 @@ footer > h2 {
     margin-right: auto;
     margin-left: 2rem;
     font-size: 2.5rem;
+    font-weight: 400;
 }
 
 .nav-item:last-child {

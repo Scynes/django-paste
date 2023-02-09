@@ -21,8 +21,10 @@
             {% include 'navigation/navigation_bar.html' %}
 
             <!-- Content of the current page -->
-            {% block content %}
-            {% endblock content %}
+            <div id="main-content-container" class="flex justify-center margin-bottom-gap">
+                {% block content %}
+                {% endblock content %}
+            </div>
 
             <!-- Footer template -->
             {% include 'footer/footer.html' %}
