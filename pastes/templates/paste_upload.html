@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div id="new-paste-container" class="grid">
-        <div>Form</div>
-        <div>Recent</div>
+    <div id="paste-home-container" class="grid">
+        <div id="paste-form-container" class="flex justify-center bar-bg-col primary-fc">
+            <form action="">
+                {% csrf_token %}
+                {{ form }}
+            </form>
+        </div>
+        <div id="recent-pastes" class="bar-bg-col primary-fc">
+            Recent
+        </div>
     </div>
 {% endblock %}
