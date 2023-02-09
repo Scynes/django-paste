@@ -2,21 +2,4 @@
 
 {% block content %}
 
-    <div class="paste-wrapper">
-        <div id="form-container" class="flex justify-center align-center">
-            <form action="#" method="POST">
-                {% csrf_token %}
-                <label for="title-input">Paste Title</label>
-                <input type="text" name="title" id="title-input" placeholder=".....">
-                <textarea class="language-html" name="body" id="" cols="30" rows="10"></textarea>
-                {{ form.syntax }}
-                {{ form.private }}
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-        <div id="recent-pastes">
-            <h2>Second column</h2>
-        </div>
-    </div>
-
 {% endblock %}

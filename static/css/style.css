@@ -1,11 +1,6 @@
-:root {
-    --bar-background-color: #33936e;
-    --primary-background-color: #0e1117;
-    --secondary-background-color: #283040;
-    --secondary-background-color-light: #39455d;
-    --text-primary-color: #93D7B7;
-}
-
+/* =========== *
+ *  CSS RESET  *
+ * =========== */
 * {
     margin: 0;
     box-sizing: border-box;
@@ -15,133 +10,20 @@ body, html {
     height: 100%;
 }
 
-a, h1 {
-    line-height: 5rem;
-    text-align: center;
-}
-
-a {
-    text-decoration: none;
-}
-
-main {
-    height: 100%;
-}
-
+/* ============== *
+ *  Highlight.js  *
+ * ============== */
 .hljs {
     background: var(--secondary-background-color); 
 }
 
-textarea {
-    resize: none;
-    border: none;
-    width: 100%;
-    padding: 1rem;
-    min-height: 20rem;
-    border-radius: 0.5rem;
-    color: var(--text-primary-color);
-    background-color: var(--secondary-background-color);
-}
-
-textarea:focus, input:focus, select:focus {
-    background-color: var(--secondary-background-color-light);
-    outline: none;
-}
-
-input, select {
-    min-height: 3rem;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    text-align: center;
-    color: var(--text-primary-color);
-    background-color: var(--secondary-background-color);
-}
-
-input:not(:last-child) {
-    margin-bottom: 1rem;
-}
-
-/* Application */
-#page-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 1rem;
-    background-color: var(--primary-background-color);
-}
-
-#header-wrapper, #footer-wrapper {
-    flex: initial;
-}
-
-#main-wrapper {
-    margin-bottom: 0.5rem;
-    flex: auto;
-}
-
-#form-container > form {
-    margin: 0 10% 0 10%;
-}
-
-#recent-pastes {
-    padding: 1rem;
-    border-radius: 0.25rem;
-    background-color: var(--secondary-background-color);
-}
-
-#title-input {
-    width: auto;
-}
-
-.navbar {
-    margin-bottom: 0.5rem;
-    display: flex;
-    background-color: var(--bar-background-color);
-}
-
-.nav-item {
-    min-height: 5rem;
-    min-width: 6rem;
-    padding: 0.3rem;
-}
-
-.nav-item:first-child {
-    margin-right: auto;
-    padding-left: 1rem;
-}
-
-.navbar, .footer {
-    border: 1px solid var(--primary-background-color);
-    border-radius: 0.25rem;
-}
-
-.footer {
-    min-height: 3.5rem;
-    background-color: var(--bar-background-color);
-}
-
-.paste-wrapper {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 3fr 1fr;
-    height: 100%;
-    color: var(--text-primary-color);
-}
-
-.flex {
-    display: flex;
-}
-
-.flex.justify-center {
-    justify-content: center;
-}
-
-.flex.align-center {
-    align-items: center;
-}
-
-/* Formats line numbers */
 .hljs-ln-numbers {
     padding-right: 1rem !important;
+}
+
+/* ======== *
+ *  Global  *
+ * ======== */
+:root {
+
 }
