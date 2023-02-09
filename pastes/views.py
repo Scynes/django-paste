@@ -24,7 +24,9 @@ class PasteView(View):
             # Get the Paste object associated with the Link
             paste = link_result.content_object
 
-            context = { 'paste': paste.body }
+            syntax = Paste.get_syntax_value(paste.syntax)
+
+            context = { 'paste': paste.body, 'syntax': syntax }
 
             return render(request, 'paste_details.html', context)
 

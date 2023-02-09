@@ -25,3 +25,11 @@ class Paste (models.Model):
     body = models.TextField(verbose_name='Paste')
     link = models.OneToOneField(Link, on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def get_syntax_value(syntax):
+
+        for element in Paste.SYNTAX_OPTIONS:
+
+            if syntax in element:
+                
+                return element[1].lower()
