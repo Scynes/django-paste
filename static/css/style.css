@@ -31,6 +31,7 @@ body, html {
     --primary-background-col: white;
     --secondary-background-col: green;
     --bar-background-col: rgb(12, 75, 51);
+    --bar-background-col-shadow: rgb(65, 101, 87);
     /* Font Colors */
     --primary-font-col: white;
     --secondary-font-col: red;
@@ -45,6 +46,11 @@ body, html {
 a {
     text-decoration: none;
     color: var(--primary-font-col);
+}
+
+nav {
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 0.75rem var(--bar-background-col-shadow);
 }
 
 /* ========= *
@@ -117,9 +123,19 @@ a {
 /* ============= *
  *  APPLICATION  *
  * ============= */
+a:is(.nav-item):hover {
+    transform: scale(1.5);
+}
+
+#page-container {
+    grid-template-rows: auto 1fr auto;
+}
+
 .nav-item {
+    min-width: 7rem;
     line-height: 4.5rem;
     padding: 0.5rem;
+    transition: 0.3s;
 }
 
 .nav-item:first-child {
@@ -130,8 +146,4 @@ a {
 
 .nav-item:last-child {
     margin-right: 2rem;
-}
-
-#page-container {
-    grid-template-rows: auto 1fr auto;
 }
