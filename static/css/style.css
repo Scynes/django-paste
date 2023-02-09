@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@100&family=Inconsolata&family=Lacquer&family=Montserrat+Alternates:wght@300&display=swap');
+
 /* =========== *
  *  CSS RESET  *
  * =========== */
@@ -14,7 +16,7 @@ body, html {
  *  Highlight.js  *
  * ============== */
 .hljs {
-    background: var(--secondary-background-color); 
+    background: red; 
 }
 
 .hljs-ln-numbers {
@@ -25,5 +27,10 @@ body, html {
  *  Global  *
  * ======== */
 :root {
+    /* Font */
+    --primary-font: 'Monts1errat Alternates', sans-serif;
+}
 
+* {
+    font-family: var(--primary-font);
 }
