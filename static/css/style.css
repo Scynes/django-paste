@@ -35,11 +35,16 @@ body, html {
     --primary-font-col: white;
     --secondary-font-col: red;
     /* Font */
-    --primary-font: 'Monts1errat Alternates', sans-serif;
+    --primary-font: 'Montserrat Alternates', sans-serif;
 }
 
 * {
     font-family: var(--primary-font);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-font-col);
 }
 
 /* ========= *
@@ -112,3 +117,21 @@ body, html {
 /* ============= *
  *  APPLICATION  *
  * ============= */
+.nav-item {
+    line-height: 4.5rem;
+    padding: 0.5rem;
+}
+
+.nav-item:first-child {
+    margin-right: auto;
+    margin-left: 2rem;
+    font-size: 3rem;
+}
+
+.nav-item:last-child {
+    margin-right: 2rem;
+}
+
+#page-container {
+    grid-template-rows: auto 1fr auto;
+}

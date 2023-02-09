@@ -16,6 +16,16 @@
         <title>Django Paste</title>
     </head>
     <body>
+        <div id="page-container" class="grid height-100">
+            <!-- Navigation template -->
+            {% include 'navigation/navigation_bar.html' %}
 
+            <!-- Content of the current page -->
+            {% block content %}
+            {% endblock content %}
+
+            <!-- Footer template -->
+            {% include 'footer/footer.html' %}
+        </div>
     </body>
 </html>
