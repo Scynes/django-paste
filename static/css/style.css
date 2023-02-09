@@ -52,7 +52,10 @@ a {
 }
 
 nav {
-    box-shadow: 0 10px 0.75rem var(--bar-background-col-shadow);
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px 0 0 5px;
+    box-shadow: -5px 10px 0.75rem var(--bar-background-col-shadow);
 }
 
 /* ========= *
