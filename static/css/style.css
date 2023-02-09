@@ -112,11 +112,11 @@ nav {
 /* ================== *
  *  FLEX/GRID SHARED  *
  * ================== */
-.justify-center:has(.flex, .grid) {
+.justify-center:is(.flex, .grid) {
     justify-content: center;
 }
 
-.align-center:has(.flex, .grid) {
+.align-center:is(.flex, .grid) {
     align-items: center;
 }
 
@@ -125,6 +125,10 @@ nav {
  * ============= */
 a:is(.nav-item):hover {
     transform: scale(1.5);
+}
+
+footer > h2 {
+    line-height: 3rem;
 }
 
 #page-container {
@@ -141,7 +145,7 @@ a:is(.nav-item):hover {
 .nav-item:first-child {
     margin-right: auto;
     margin-left: 2rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .nav-item:last-child {
