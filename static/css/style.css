@@ -24,9 +24,16 @@ body, html {
 }
 
 /* ======== *
- *  Global  *
+ *  GLOBAL  *
  * ======== */
 :root {
+    /* Background Colors */
+    --primary-background-col: white;
+    --secondary-background-col: green;
+    --bar-background-col: rgb(12, 75, 51);
+    /* Font Colors */
+    --primary-font-col: white;
+    --secondary-font-col: red;
     /* Font */
     --primary-font: 'Monts1errat Alternates', sans-serif;
 }
@@ -34,3 +41,74 @@ body, html {
 * {
     font-family: var(--primary-font);
 }
+
+/* ========= *
+ *  UTILITY  *
+ * ========= */
+.width-100 {
+    width: 100%;
+}
+
+.height-100 {
+    height: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.borderless {
+    border: none;
+}
+
+/* ======= *
+ *  COLOR  *
+ * ======= */
+.bar-bg-col {
+    background-color: var(--bar-background-col);
+}
+
+.bg-primary-col {
+    background-color: var(--primary-background-col);
+}
+
+.bg-secondary-col {
+    background-color: var(--secondary-background-col);
+}
+
+.primary-fc {
+    color: var(--primary-font-col);
+}
+
+.secondary-fc {
+    color: var(--secondary-font-col);
+}
+
+/* ====== *
+ *  FLEX  *
+ * ====== */
+.flex {
+    display: flex;
+}
+
+/* ====== *
+ *  GRID  *
+ * ====== */
+.grid {
+    display: grid;
+}
+
+/* ================== *
+ *  FLEX/GRID SHARED  *
+ * ================== */
+.justify-center:has(.flex, .grid) {
+    justify-content: center;
+}
+
+.align-center:has(.flex, .grid) {
+    align-items: center;
+}
+
+/* ============= *
+ *  APPLICATION  *
+ * ============= */
