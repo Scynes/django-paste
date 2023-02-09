@@ -1,7 +1,8 @@
 :root {
     --bar-background-color: #33936e;
     --primary-background-color: #0e1117;
-    --secondary-background-color: #181d27;
+    --secondary-background-color: #283040;
+    --secondary-background-color-light: #39455d;
     --text-primary-color: #93D7B7;
 }
 
@@ -23,15 +24,42 @@ a {
     text-decoration: none;
 }
 
+main {
+    height: 100%;
+}
+
 .hljs {
     background: var(--secondary-background-color); 
 }
 
 textarea {
     resize: none;
+    border: none;
+    width: 100%;
+    padding: 1rem;
+    min-height: 20rem;
+    border-radius: 0.5rem;
+    color: var(--text-primary-color);
     background-color: var(--secondary-background-color);
+}
+
+textarea:focus, input:focus, select:focus {
+    background-color: var(--secondary-background-color-light);
+    outline: none;
+}
+
+input, select {
+    min-height: 3rem;
+    padding: 0.5rem;
     border: none;
     border-radius: 0.5rem;
+    text-align: center;
+    color: var(--text-primary-color);
+    background-color: var(--secondary-background-color);
+}
+
+input:not(:last-child) {
+    margin-bottom: 1rem;
 }
 
 /* Application */
@@ -50,6 +78,20 @@ textarea {
 #main-wrapper {
     margin-bottom: 0.5rem;
     flex: auto;
+}
+
+#form-container > form {
+    margin: 0 10% 0 10%;
+}
+
+#recent-pastes {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background-color: var(--secondary-background-color);
+}
+
+#title-input {
+    width: auto;
 }
 
 .navbar {
@@ -79,7 +121,27 @@ textarea {
     background-color: var(--bar-background-color);
 }
 
-/* for block of numbers */
+.paste-wrapper {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 3fr 1fr;
+    height: 100%;
+    color: var(--text-primary-color);
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.justify-center {
+    justify-content: center;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+/* Formats line numbers */
 .hljs-ln-numbers {
     padding-right: 1rem !important;
 }
