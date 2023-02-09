@@ -1,3 +1,80 @@
-#id_body {
+:root {
+    --bar-background-color: #33936e;
+    --primary-background-color: #0e1117;
+    --secondary-background-color: #181d27;
+    --text-primary-color: #93D7B7;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+}
+
+a, h1 {
+    line-height: 5rem;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.hljs {
+    background: var(--secondary-background-color); 
+}
+
+textarea {
     resize: none;
+    background-color: var(--secondary-background-color);
+    border: none;
+    border-radius: 0.5rem;
+}
+
+/* Application */
+#page-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem;
+    background-color: var(--primary-background-color);
+}
+
+#header-wrapper, #footer-wrapper {
+    flex: initial;
+}
+
+#main-wrapper {
+    margin-bottom: 0.5rem;
+    flex: auto;
+}
+
+.navbar {
+    margin-bottom: 0.5rem;
+    display: flex;
+    background-color: var(--bar-background-color);
+}
+
+.nav-item {
+    min-height: 5rem;
+    min-width: 6rem;
+    padding: 0.3rem;
+}
+
+.nav-item:first-child {
+    margin-right: auto;
+    padding-left: 1rem;
+}
+
+.navbar, .footer {
+    border: 1px solid var(--primary-background-color);
+    border-radius: 0.25rem;
+}
+
+.footer {
+    min-height: 3.5rem;
+    background-color: var(--bar-background-color);
 }

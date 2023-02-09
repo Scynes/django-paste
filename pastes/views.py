@@ -24,7 +24,9 @@ class PasteView(View):
             # Get the Paste object associated with the Link
             paste = link_result.content_object
 
-            return HttpResponse(paste.body)
+            context = { 'paste': paste.body }
+
+            return render(request, 'paste_details.html', context)
 
         else:
 
@@ -63,4 +65,4 @@ class PasteUploadView(View):
         paste.link = link
         paste.save()
 
-        return HttpResponse(paste)
+        return HttpResponse(link.short_uuid)
