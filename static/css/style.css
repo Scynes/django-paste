@@ -78,3 +78,8 @@ textarea {
     min-height: 3.5rem;
     background-color: var(--bar-background-color);
 }
+
+/* for block of numbers */
+.hljs-ln-numbers {
+    padding-right: 1rem !important;
+}
