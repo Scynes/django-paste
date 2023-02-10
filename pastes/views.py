@@ -43,6 +43,8 @@ class PasteUploadView(View):
         return render(request, 'paste_upload.html', context)
 
     def post(self, request):
+
+        print(request.POST)
         
         form_data = PasteForm(request.POST)
 

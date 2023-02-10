@@ -22,6 +22,7 @@ class Paste (models.Model):
     title = models.CharField(max_length=255)
     syntax = models.CharField(max_length=4, choices=SYNTAX_OPTIONS, default=TEXT_SYNTAX, verbose_name='Highlight')
     private = models.BooleanField(default=False)
+    burn = models.BooleanField(default=False)
     body = models.TextField(verbose_name='Paste')
     link = models.OneToOneField(Link, on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
