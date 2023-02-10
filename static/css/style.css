@@ -38,7 +38,7 @@ body, html {
     --input-bg-col-contrast-bright: #9eb7ea;
     /* Font Colors */
     --primary-font-col: white;
-    --secondary-font-col: red;
+    --secondary-font-col: #44B78B;
     /* Font */
     --primary-font: 'M PLUS Code Latin', sans-serif;
     /* Margins */
@@ -68,9 +68,32 @@ nav {
     box-shadow: -5px 0.5rem 0.5rem var(--bar-background-col-shadow);
 }
 
+input, select {
+    display: block;
+    min-height: 2.5rem;
+    min-width:  15rem;
+    padding: 0.5rem !important;
+}
+
+input, select {
+    margin-bottom: 0.5rem;
+}
+
 textarea {
+    height: 30rem;
+    text-align: start !important;
+}
+
+textarea, input, select {
     resize: none;
-    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 0.5rem;
+    color: var(--secondary-font-col);
+    background-color: var(--input-bg-col);
 }
 
 /* ========= *
@@ -181,6 +204,7 @@ a:is(.nav-item):hover {
 }
 
 div:is(.switch) {
+    display: inline-block;
     width: 3rem;
     height: 1.5rem;
     border: 1px solid var(--input-bg-col-contrast-bright);
@@ -205,12 +229,21 @@ div:is(.switch) > label > input[type="checkbox"]:checked + .ball {
     background-color: var(--input-bg-col-contrast-bright);
 }
 
+input[type="submit"] {
+    transition: 0.25s;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--input-bg-col-contrast);
+}
+
 footer > h2 {
     line-height: 3rem;
 }
 
-textarea:focus {
-    background-color: var(--input-bg-col-contrast-bright);
+:focus:is(textarea, input) {
+    outline: none;
+    background-color: var(--input-bg-col-contrast);
 }
 
 #page-container {
@@ -225,6 +258,9 @@ textarea:focus {
     grid-template-columns: 3fr auto;
     gap: 2rem;
     margin-left: 1rem;
+}
+
+#id_title {
     width: 100%;
 }
 
@@ -253,6 +289,16 @@ textarea:focus {
 #paste-form-container {
     border-radius: 1rem;
     border-left: 0.5rem solid var(--bar-background-col-contrast);
+    max-width: 60rem;
+    width: 100%;
+}
+
+#paste-form-container > form {
+    width: 100%;
+}
+
+#switches {
+    gap: 2rem;
 }
 
 .nav-item {
@@ -271,6 +317,11 @@ textarea:focus {
 
 .nav-item:last-child {
     margin-right: 2rem;
+}
+
+.paste-options {
+    gap: 1rem;
+    grid-template-columns: 1fr auto;
 }
 
 /* TESTING */

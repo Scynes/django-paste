@@ -1,19 +1,47 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div id="paste-home-container" class="grid">
+    <div id="paste-home-container" class="grid width-100">
         <div class="flex justify-center">
             <div id="paste-form-container" class="flex justify-center bar-bg-col primary-fc">
-                <form action="">
+                <form action="#" method="POST">
                     {% csrf_token %}
-                    {{ form }}
-                    <div class="switch borderless bg-input-col border-radius-full">
-                        <label class="">
-                            <input class="width-100" type="checkbox" name="private" id="">
-                            <div class="ball pointer"></div>
-                        </label>
+                    <div class="grid paste-options">
+                        <div>
+                            <label for="id_title">Title:</label>
+                            {{ form.title }}
+                        </div>
+                        <div>
+                            <label for="id_syntax">Syntax Highlighting:</label>
+                            {{ form.syntax }}
+                        </div>
                     </div>
-                    <textarea class="bg-input-col border-radius-half borderless no-outline" name="body" id="" cols="30" rows="10"></textarea>
+                    <textarea class="width-100 bg-input-col border-radius-half" name="body" id="" cols="30" rows="10"></textarea>
+                    <div class="grid paste-options">
+                        <div>
+                            <input class="width-100 pointer" type="submit" value="Submit Paste">
+                        </div>
+                        <div id="switches" class="flex">
+                            <div class="flex align-center">
+                                <label for="id_private">Private:</label>
+                                <div cid="id_private" class="switch borderless bg-input-col border-radius-full">
+                                    <label>
+                                        <input class="width-100" type="checkbox" name="private">
+                                        <div class="ball pointer"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="flex align-center">
+                                <label for="id_burn">Burn:</label>
+                                <div class="switch borderless bg-input-col border-radius-full">
+                                    <label class="">
+                                        <input class="width-100" type="checkbox" name="burn" id="id_burn">
+                                        <div class="ball pointer"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
