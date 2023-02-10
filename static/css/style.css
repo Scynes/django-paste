@@ -167,6 +167,7 @@ footer > h2 {
 #paste-home-container {
     grid-template-columns: 3fr auto;
     gap: 2rem;
+    margin-left: 1rem;
     width: 100%;
 }
 
