@@ -7,11 +7,12 @@
                 <form action="">
                     {% csrf_token %}
                     {{ form }}
+                    <textarea class="bg-input-col border-radius-half borderless no-outline" name="body" id="" cols="30" rows="10"></textarea>
                 </form>
             </div>
         </div>
         <div id="recent-pastes" class="bar-bg-col primary-fc">
-            Recent
+            <h2 class="text-vertical">Recent Pastes</h2>
         </div>
     </div>
 {% endblock %}

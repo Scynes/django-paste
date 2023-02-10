@@ -33,6 +33,8 @@ body, html {
     --bar-background-col: rgb(12, 75, 51);
     --bar-background-col-contrast: rgb(31, 164, 113);
     --bar-background-col-shadow: rgb(65, 101, 87);
+    --input-bg-col: #262e3f;
+    --input-bg-col-contrast: #485266;
     /* Font Colors */
     --primary-font-col: white;
     --secondary-font-col: red;
@@ -49,6 +51,7 @@ body, html {
 
 body {
     background-color: var(--primary-background-col);
+    overflow-x: hidden;
 }
 
 a {
@@ -67,7 +70,6 @@ nav {
 textarea {
     resize: none;
     width: 100%;
-    height: 80%;
 }
 
 /* ========= *
@@ -89,8 +91,21 @@ textarea {
     text-align: center;
 }
 
+.text-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+.no-outline {
+    outline: none;
+}
+
 .borderless {
     border: none;
+}
+
+.border-radius-half {
+    border-radius: 0.5rem;
 }
 
 /* ======= *
@@ -114,6 +129,10 @@ textarea {
 
 .secondary-fc {
     color: var(--secondary-font-col);
+}
+
+.bg-input-col {
+    background-color: var(--input-bg-col);
 }
 
 /* ====== *
@@ -156,6 +175,10 @@ footer > h2 {
     line-height: 3rem;
 }
 
+textarea:focus {
+    background-color: var(--input-bg-col-contrast);
+}
+
 #page-container {
     grid-template-rows: auto 1fr auto;
 }
@@ -179,11 +202,17 @@ footer > h2 {
 #recent-pastes {
     border-radius: 1rem 0 0 1rem;
     border-left: 0.5rem solid var(--bar-background-col-contrast);
-    transition: all 2s ease-in-out;
+    width: 4rem;
+    height: auto;
+    transition: width 0.5s;
 }
 
 #recent-pastes:hover {
-    min-width: 20rem;
+    width: 20rem;
+}
+
+#recent-pastes:hover h2 {
+    writing-mode: horizontal-tb;
 }
 
 #paste-form-container {
