@@ -7,6 +7,12 @@
                 <form action="">
                     {% csrf_token %}
                     {{ form }}
+                    <div class="switch borderless bg-input-col border-radius-full">
+                        <label class="">
+                            <input class="width-100" type="checkbox" name="private" id="">
+                            <div class="ball pointer"></div>
+                        </label>
+                    </div>
                     <textarea class="bg-input-col border-radius-half borderless no-outline" name="body" id="" cols="30" rows="10"></textarea>
                 </form>
             </div>

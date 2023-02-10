@@ -35,6 +35,7 @@ body, html {
     --bar-background-col-shadow: rgb(65, 101, 87);
     --input-bg-col: #262e3f;
     --input-bg-col-contrast: #485266;
+    --input-bg-col-contrast-bright: #9eb7ea;
     /* Font Colors */
     --primary-font-col: white;
     --secondary-font-col: red;
@@ -64,7 +65,7 @@ nav {
     margin-top: 1rem;
     border-radius: 1rem 0 0 1rem;
     border-bottom: 5px solid var(--bar-background-col-contrast);
-    box-shadow: -5px 10px 0.75rem var(--bar-background-col-shadow);
+    box-shadow: -5px 0.5rem 0.5rem var(--bar-background-col-shadow);
 }
 
 textarea {
@@ -106,6 +107,14 @@ textarea {
 
 .border-radius-half {
     border-radius: 0.5rem;
+}
+
+.border-radius-full {
+    border-radius: 1rem;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 /* ======= *
@@ -171,12 +180,37 @@ a:is(.nav-item):hover {
     transform: scale(1.5);
 }
 
+div:is(.switch) {
+    width: 3rem;
+    height: 1.5rem;
+    border: 1px solid var(--input-bg-col-contrast-bright);
+}
+
+div:is(.switch) > label > .ball {
+    width: 50%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--input-bg-col-contrast);
+    transform: scale(0.8);
+    transition: 0.25s;
+}
+
+div:is(.switch) > label > input[type="checkbox"] {
+    display: none;
+}
+
+div:is(.switch) > label > input[type="checkbox"]:checked + .ball {
+    transform: translateX(100%) scale(1.1);
+    border: 2px solid var(--input-bg-col-contrast);
+    background-color: var(--input-bg-col-contrast-bright);
+}
+
 footer > h2 {
     line-height: 3rem;
 }
 
 textarea:focus {
-    background-color: var(--input-bg-col-contrast);
+    background-color: var(--input-bg-col-contrast-bright);
 }
 
 #page-container {
@@ -213,12 +247,12 @@ textarea:focus {
 
 #recent-pastes:hover h2 {
     writing-mode: horizontal-tb;
+    text-align: center;
 }
 
 #paste-form-container {
     border-radius: 1rem;
-    border-bottom: 0.5rem solid var(--bar-background-col-contrast);
-    box-shadow: 0 10px 0.5rem var(--bar-background-col-shadow);
+    border-left: 0.5rem solid var(--bar-background-col-contrast);
 }
 
 .nav-item {
@@ -231,7 +265,7 @@ textarea:focus {
 .nav-item:first-child {
     margin-right: auto;
     margin-left: 2rem;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 400;
 }
 
