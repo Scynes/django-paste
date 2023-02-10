@@ -3,8 +3,8 @@
 {% block content %}
     <div id="paste-home-container" class="grid width-100">
         <div class="flex justify-center">
-            <div id="paste-form-container" class="flex justify-center bar-bg-col primary-fc">
-                <form action="#" method="POST">
+            <div id="paste-form-container" class="grid width-100 align-start bar-bg-col primary-fc">
+                <form class="width-100 height-100" action="#" method="POST">
                     {% csrf_token %}
                     <div class="grid paste-options">
                         <div>
@@ -16,7 +16,7 @@
                             {{ form.syntax }}
                         </div>
                     </div>
-                    <textarea class="width-100 bg-input-col border-radius-half" name="body" id="" cols="30" rows="10"></textarea>
+                    <textarea class="width-100 bg-input-col border-radius-half" name="body" id="paste-input" cols="30"></textarea>
                     <div class="grid paste-options">
                         <div>
                             <input class="width-100 pointer" type="submit" value="Submit Paste">
@@ -43,10 +43,26 @@
                         </div>
                     </div>
                 </form>
+                <div id="mirror-container">
+                    <label for="paste-output">Code Mirror:</label>
+                    <pre>
+                        <code id="paste-output" class="line-numbers language-javascript">sdfs
+                        </code>
+                    </pre>
+                </div>
             </div>
         </div>
         <div id="recent-pastes" class="bar-bg-col primary-fc">
             <h2 class="text-vertical">Recent Pastes</h2>
         </div>
     </div>
+    <script>
+        const input = document.getElementById('paste-input');
+        const output = document.getElementById('paste-output');
+
+        document.getElementById('paste-input').addEventListener('keyup', () => {
+            output.textContent = input.value;
+            hljs.highlightElement(output)
+        })
+    </script>
 {% endblock %}
