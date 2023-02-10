@@ -29,7 +29,7 @@ body, html {
 :root {
     /* Background Colors */
     --primary-background-col: white;
-    --secondary-background-col: green;
+    --secondary-background-col: rgb(31, 164, 113);
     --bar-background-col: rgb(12, 75, 51);
     --bar-background-col-contrast: rgb(31, 164, 113);
     --bar-background-col-shadow: rgb(65, 101, 87);
@@ -45,6 +45,10 @@ body, html {
 * {
     font-family: var(--primary-font);
     font-weight: 300;
+}
+
+body {
+    background-color: var(--primary-background-col);
 }
 
 a {
@@ -119,6 +123,10 @@ textarea {
     display: flex;
 }
 
+.align-end:is(.flex) {
+    align-items: flex-end;
+}
+
 /* ====== *
  *  GRID  *
  * ====== */
@@ -157,25 +165,30 @@ footer > h2 {
 }
 
 #paste-home-container {
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr auto;
     gap: 2rem;
     width: 100%;
 }
 
-#paste-form {
-    margin-left: 4rem;
-}
-
 #recent-pastes, #paste-form-container {
     padding: 1rem;
-    border-radius: 1rem 0 0 1rem;
-    border-bottom: 0.5rem solid var(--bar-background-col-contrast);
     box-shadow: -5px 10px 0.75rem var(--bar-background-col-shadow);
 }
 
+#recent-pastes {
+    border-radius: 1rem 0 0 1rem;
+    border-left: 0.5rem solid var(--bar-background-col-contrast);
+    transition: all 2s ease-in-out;
+}
+
+#recent-pastes:hover {
+    min-width: 20rem;
+}
+
 #paste-form-container {
-    margin-left: 20%;
     border-radius: 1rem;
+    border-bottom: 0.5rem solid var(--bar-background-col-contrast);
+    box-shadow: 0 10px 0.5rem var(--bar-background-col-shadow);
 }
 
 .nav-item {

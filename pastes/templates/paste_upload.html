@@ -2,11 +2,13 @@
 
 {% block content %}
     <div id="paste-home-container" class="grid">
-        <div id="paste-form-container" class="flex justify-center bar-bg-col primary-fc">
-            <form action="">
-                {% csrf_token %}
-                {{ form }}
-            </form>
+        <div class="flex justify-center">
+            <div id="paste-form-container" class="flex justify-center bar-bg-col primary-fc">
+                <form action="">
+                    {% csrf_token %}
+                    {{ form }}
+                </form>
+            </div>
         </div>
         <div id="recent-pastes" class="bar-bg-col primary-fc">
             Recent
