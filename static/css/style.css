@@ -266,6 +266,7 @@ footer > h2 {
 
 #paste-home-container {
     grid-template-columns: auto 3fr auto;
+    grid-template-rows: 1fr 1fr;
     gap: 2rem;
 }
 
@@ -281,18 +282,6 @@ footer > h2 {
 #recent-pastes {
     border-radius: 1rem 0 0 1rem;
     border-left: 0.5rem solid var(--bar-background-col-contrast);
-    width: 4rem;
-    height: auto;
-    transition: width 0.5s;
-}
-
-#recent-pastes:hover {
-    width: 20rem;
-}
-
-#recent-pastes:hover h2 {
-    writing-mode: horizontal-tb;
-    text-align: center;
 }
 
 #paste-form-container {
@@ -300,6 +289,10 @@ footer > h2 {
     border-radius: 1rem;
     border-left: 0.5rem solid var(--bar-background-col-contrast);
     max-width: 60rem;
+}
+
+#paste-form-container-wrapper, #recent-pastes {
+    grid-row: span 2;
 }
 
 #news {
@@ -340,6 +333,27 @@ img {
 .paste-options {
     gap: 1rem;
     grid-template-columns: 1fr auto;
+}
+
+.side-bar {
+    width: 4rem;
+    padding: 0.75rem;
+    transition: width 0.5s;
+}
+
+.side-bar > h2 {
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+}
+
+.side-bar:hover {
+    width: 20rem;
+}
+
+.side-bar:hover h2 {
+    writing-mode: horizontal-tb;
+    text-align: center;
 }
 
 /* TESTING */
