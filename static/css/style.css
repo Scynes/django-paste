@@ -80,7 +80,7 @@ input, select {
 }
 
 textarea {
-    max-height: 25rem;
+    max-height: 15rem;
     height: 100%;
     text-align: start !important;
 }
@@ -264,9 +264,10 @@ footer > h2 {
     margin-bottom: 1rem;
 }
 
+/* TODO: Fix resize issue with rows.. */
 #paste-home-container {
     grid-template-columns: auto 3fr auto;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto;
     gap: 2rem;
 }
 
@@ -281,7 +282,6 @@ footer > h2 {
 
 #paste-form-container {
     max-width: 60rem;
-    grid-template-rows: 3fr 1fr;
     padding: 1rem;
     border-bottom: 0.75rem solid var(--bar-background-col-contrast);
     box-shadow: 0 10px 1rem 5px var(--bar-background-col-shadow);
@@ -364,8 +364,6 @@ img {
 #paste-output {
     white-space: pre-wrap;
     overflow: scroll;
-    max-height: 8rem;
-    min-height: 8rem;
 }
 
 #paste-output::-webkit-scrollbar {
@@ -373,5 +371,6 @@ img {
 }
 
 #mirror-container {
-    max-height: 5rem;
+    resize: both;
+    overflow: auto;
 }
