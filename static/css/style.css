@@ -365,8 +365,9 @@ img {
 /* TESTING */
 #paste-output {
     max-height: 10rem;
+    min-height: 10rem;
     white-space: pre-wrap;
-    overflow-y: scroll;
+    border-left: 0.5rem solid grey;
 }
 
 #paste-output::-webkit-scrollbar {
