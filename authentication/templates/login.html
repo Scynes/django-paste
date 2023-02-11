@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <label for="id_username">Username:</label>
+        <input type="text" name="username" id="id_username" maxlength="150" required>
+        <label for="is_paddword">Password:</label>
+        <input type="password" name="password" id="id_password" required>
+        <input class="pointer" type="submit" value="Submit">
+    </form>
+
+{% endblock content %}

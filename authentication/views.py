@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import View
+from django.contrib.auth.forms import AuthenticationForm
 
 from .forms import RegisterForm
 
-class Register(CreateView):
+class Register(View):
 
     def post(self, request):
 
@@ -17,7 +18,39 @@ class Register(CreateView):
             login(request, authenticate(username=form.cleaned_data.get('username'), password=form.cleaned_data.get('password1')))
 
             return redirect('upload')
+        
+        else:
+
+            return redirect('upload')
 
     def get(self, request):
 
-        return redirect('upload')
+        form = RegisterForm()
+
+        context = { 'form': form }
+
+        return render(request, 'register.html', context)
+
+class Login(View):
+
+    def post(self, request):
+
+        form = AuthenticationForm(request, data=request.POST)
+
+        if form.is_valid():
+
+            user = authenticate(username=form.cleaned_data.get('username'), password=form.cleaned_data.get('password'))
+
+            if user is not None:
+
+                login(request, user)
+
+                return redirect('upload')
+
+    def get(self, request):
+
+        form = AuthenticationForm(request)
+
+        context = { 'form': form }
+
+        return render(request, 'login.html', context)
