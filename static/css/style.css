@@ -265,9 +265,8 @@ footer > h2 {
 }
 
 #paste-home-container {
-    grid-template-columns: 3fr auto;
+    grid-template-columns: auto 3fr auto;
     gap: 2rem;
-    margin-left: 1rem;
 }
 
 #id_title {
@@ -301,6 +300,11 @@ footer > h2 {
     border-radius: 1rem;
     border-left: 0.5rem solid var(--bar-background-col-contrast);
     max-width: 60rem;
+}
+
+#news {
+    border-radius: 0 1rem 1rem 0;
+    border-right: 0.5rem solid var(--bar-background-col-contrast);
 }
 
 #switches {
