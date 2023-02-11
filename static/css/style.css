@@ -274,21 +274,17 @@ footer > h2 {
     width: 100%;
 }
 
-#recent-pastes, #paste-form-container {
-    padding: 1rem;
-    box-shadow: -5px 10px 0.75rem var(--bar-background-col-shadow);
-}
-
 #recent-pastes {
     border-radius: 1rem 0 0 1rem;
     border-left: 0.5rem solid var(--bar-background-col-contrast);
 }
 
 #paste-form-container {
-    grid-template-rows: 3fr 1fr;
-    border-radius: 1rem;
-    border-left: 0.5rem solid var(--bar-background-col-contrast);
     max-width: 60rem;
+    grid-template-rows: 3fr 1fr;
+    padding: 1rem;
+    border-bottom: 0.75rem solid var(--bar-background-col-contrast);
+    box-shadow: 0 10px 1rem 5px var(--bar-background-col-shadow);
 }
 
 #paste-form-container-wrapper, #recent-pastes {
@@ -354,6 +350,14 @@ img {
 .side-bar:hover h2 {
     writing-mode: horizontal-tb;
     text-align: center;
+}
+
+.side-bar.left {
+    box-shadow: 5px 10px 0.75rem var(--bar-background-col-shadow);
+}
+
+.side-bar.right {
+    box-shadow: -5px 10px 0.75rem var(--bar-background-col-shadow);
 }
 
 /* TESTING */
