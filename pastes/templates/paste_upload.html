@@ -7,7 +7,7 @@
         </div>
         <div id="paste-form-container-wrapper" class="flex justify-center">
             <div id="paste-form-container" class="grid width-100 border-radius-full align-start bar-bg-col primary-fc">
-                <form class="width-100 height-100" action="#" method="POST">
+                <form class="flex column width-100" action="#" method="POST">
                     {% csrf_token %}
                     <div class="grid paste-options">
                         <div>
@@ -19,7 +19,7 @@
                             {{ form.syntax }}
                         </div>
                     </div>
-                    <textarea class="width-100 bg-input-col border-radius-half" name="body" id="paste-input" cols="30"></textarea>
+                    <textarea class="width-100 bg-input-col border-radius-half" name="body" id="paste-input" rows="1"></textarea>
                     <div class="grid paste-options">
                         <div>
                             <input class="width-100 pointer" type="submit" value="Submit Paste">
@@ -46,13 +46,12 @@
                         </div>
                     </div>
                 </form>
-                <pre id="mirror-container">
-                    <div>
-                        <label for="paste-output">Code Mirror:</label>
-                            <code id="paste-output" class="line-numbers language-javascript">sdfs
-                            </code>
-                    </div>
-                </pre>
+                <div id="mirror-container">
+                    <label for="paste-output">Code Mirror:</label>
+                    <pre>
+                        <code id="paste-output" class="line-numbers language-javascript">sdfs</code>
+                    </pre>
+                </div>
             </div>
         </div>
         <div id="recent-pastes" class="side-bar right bar-bg-col primary-fc">
@@ -79,6 +78,8 @@
 
                 if (event.keyCode !== 9) return;
         
+                event.preventDefault();
+
                 element.setRangeText(
                     '  ',
                     element.selectionStart,

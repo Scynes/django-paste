@@ -80,8 +80,8 @@ input, select {
 }
 
 textarea {
-    max-height: 15rem;
     height: 100%;
+    margin-bottom: 8px;
     text-align: start !important;
 }
 
@@ -267,7 +267,7 @@ footer > h2 {
 /* TODO: Fix resize issue with rows.. */
 #paste-home-container {
     grid-template-columns: auto 3fr auto;
-    grid-template-rows: auto auto;
+    grid-template-rows: 1fr 1fr;
     gap: 2rem;
 }
 
@@ -281,6 +281,7 @@ footer > h2 {
 }
 
 #paste-form-container {
+    grid-template-rows: 1fr auto;
     max-width: 60rem;
     padding: 1rem;
     border-bottom: 0.75rem solid var(--bar-background-col-contrast);
@@ -341,6 +342,7 @@ img {
     font-weight: 500;
     margin: 0;
     text-align: center;
+    font-size: 2.5vmin;
 }
 
 .side-bar:hover {
@@ -362,15 +364,18 @@ img {
 
 /* TESTING */
 #paste-output {
+    max-height: 10rem;
     white-space: pre-wrap;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 #paste-output::-webkit-scrollbar {
-    display: none;
+    width: 0.4rem;
+    padding-right: 1rem;
+    background-color: rgba(255, 255, 255, 0);
 }
 
-#mirror-container {
-    resize: both;
-    overflow: auto;
+#paste-output::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--secondary-font-col);
 }
