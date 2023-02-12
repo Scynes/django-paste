@@ -26,7 +26,7 @@ class PasteView(View):
 
             syntax = Paste.get_syntax_value(paste.syntax)
 
-            context = { 'paste': paste.body, 'syntax': syntax }
+            context = { 'paste': paste, 'syntax': syntax }
 
             return render(request, 'paste_details.html', context)
 

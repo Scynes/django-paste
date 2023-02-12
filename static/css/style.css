@@ -62,7 +62,7 @@ body {
 
 code {
     border-radius: 0.4rem;
-    max-height: 30rem;
+    max-height: 20rem;
 }
 
 a {
@@ -150,6 +150,18 @@ textarea, input, select {
 
 .pointer {
     cursor: pointer;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.padding-half-rem {
+    padding: 0.5rem;
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
 
 /* ======= *
