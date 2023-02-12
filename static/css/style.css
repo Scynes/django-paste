@@ -51,7 +51,7 @@ body, html {
 }
 
 body {
-    background-color: var(--primary-background-col);
+    background-color: #ffffff;
     overflow-x: hidden;
 }
 
@@ -295,6 +295,10 @@ footer > h2 {
 #news {
     border-radius: 0 1rem 1rem 0;
     border-right: 0.5rem solid var(--bar-background-col-contrast);
+}
+
+#paste-display-container {
+    min-width: 40rem;
 }
 
 #switches {

@@ -1,94 +1,51 @@
-{% extends 'base.html' %}
+{% extends 'content_container.html' %}
 
-{% block content %}
-    <div id="paste-home-container" class="grid width-100">
-        <div id="news" class="side-bar left bar-bg-col primary-fc">
-            <h2 class="text-vertical text-center">Global Pastes</h2>
-        </div>
-        <div id="paste-form-container-wrapper" class="flex justify-center">
-            <div id="paste-form-container" class="grid width-100 border-radius-full align-start bar-bg-col primary-fc">
-                <form class="flex column width-100" action="#" method="POST">
-                    {% csrf_token %}
-                    <div class="grid paste-options">
-                        <div>
-                            <label for="id_title">Title:</label>
-                            {{ form.title }}
-                        </div>
-                        <div>
-                            <label for="id_syntax">Syntax Highlighting:</label>
-                            {{ form.syntax }}
-                        </div>
-                    </div>
-                    <textarea class="width-100 bg-input-col border-radius-half" name="body" id="paste-input" rows="1" placeholder="Paste your content here..."></textarea>
-                    <div class="grid paste-options">
-                        <div>
-                            <input class="width-100 pointer" type="submit" value="Submit Paste">
-                        </div>
-                        <div id="switches" class="flex">
-                            <div class="flex align-center">
-                                <label for="id_private">Private:</label>
-                                <div cid="id_private" class="switch borderless bg-input-col border-radius-full">
-                                    <label>
-                                        <input class="width-100" type="checkbox" name="private">
-                                        <div class="ball pointer"></div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="flex align-center">
-                                <label for="id_burn">Burn:</label>
-                                <div class="switch borderless bg-input-col border-radius-full">
-                                    <label class="">
-                                        <input class="width-100" type="checkbox" name="burn" id="id_burn">
-                                        <div class="ball pointer"></div>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div id="mirror-container">
-                    <label for="paste-output">Code Mirror:</label>
-                    <pre>
-                        <code id="paste-output" class="line-numbers language-javascript">sdfs</code>
-                    </pre>
+{% block primary_content %}
+    <div id="paste-form-container" class="grid width-100 border-radius-full align-start bar-bg-col primary-fc">
+        <form class="flex column width-100" action="#" method="POST">
+            {% csrf_token %}
+            <div class="grid paste-options">
+                <div>
+                    <label for="id_title">Title:</label>
+                    {{ form.title }}
+                </div>
+                <div>
+                    <label for="id_syntax">Syntax Highlighting:</label>
+                    {{ form.syntax }}
                 </div>
             </div>
-        </div>
-        <div id="recent-pastes" class="side-bar right bar-bg-col primary-fc">
-            {% include 'recent_pastes_widget.html' %}
-        </div>
-        <div id="news" class="side-bar left bar-bg-col primary-fc">
-            <h2 class="text-vertical">News</h2>
+            <textarea class="width-100 bg-input-col border-radius-half" name="body" id="paste-input" rows="1" placeholder="Paste your content here..."></textarea>
+            <div class="grid paste-options">
+                <div>
+                    <input class="width-100 pointer" type="submit" value="Submit Paste">
+                </div>
+                <div id="switches" class="flex">
+                    <div class="flex align-center">
+                        <label for="id_private">Private:</label>
+                        <div cid="id_private" class="switch borderless bg-input-col border-radius-full">
+                            <label>
+                                <input class="width-100" type="checkbox" name="private">
+                                <div class="ball pointer"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex align-center">
+                        <label for="id_burn">Burn:</label>
+                        <div class="switch borderless bg-input-col border-radius-full">
+                            <label class="">
+                                <input class="width-100" type="checkbox" name="burn" id="id_burn">
+                                <div class="ball pointer"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div id="mirror-container">
+            <label for="paste-output">Code Mirror:</label>
+            <pre>
+                <code id="paste-output" class="line-numbers language-javascript">sdfs</code>
+            </pre>
         </div>
     </div>
-    <script>
-        const input = document.getElementById('paste-input');
-        const output = document.getElementById('paste-output');
-
-        input.addEventListener('keyup', () => {
-            output.textContent = input.value;
-            hljs.highlightElement(output)
-        })
-
-        const enableTab = elementID => {
-
-            const element = document.getElementById(elementID);
-
-            element.onkeydown = event => {
-
-                if (event.keyCode !== 9) return;
-        
-                event.preventDefault();
-
-                element.setRangeText(
-                    '  ',
-                    element.selectionStart,
-                    element.selectionStart,
-                    'end'
-                  )
-            };
-        }
-        
-        enableTab('paste-input')
-    </script>
-{% endblock %}
+{% endblock primary_content %}

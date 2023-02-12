@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="paste-home-container" class="grid width-100">
+        <div id="news" class="side-bar left bar-bg-col primary-fc">
+            <h2 class="text-vertical text-center">Global Pastes</h2>
+        </div>
+        <div id="paste-form-container-wrapper" class="flex justify-center">
+            <!-- Block for wrapping content of the current paste view -->
+            {% block primary_content %}
+            {% endblock primary_content %}
+        </div>
+        <div id="recent-pastes" class="side-bar right bar-bg-col primary-fc">
+            {% include 'recent_pastes_widget.html' %}
+        </div>
+        <div id="news" class="side-bar left bar-bg-col primary-fc">
+            <h2 class="text-vertical">News</h2>
+        </div>
+    </div>
+    <script>
+        const input = document.getElementById('paste-input');
+        const output = document.getElementById('paste-output');
+
+        input.addEventListener('keyup', () => {
+            output.textContent = input.value;
+            hljs.highlightElement(output)
+        })
+
+        const enableTab = elementID => {
+
+            const element = document.getElementById(elementID);
+
+            element.onkeydown = event => {
+
+                if (event.keyCode !== 9) return;
+        
+                event.preventDefault();
+
+                element.setRangeText(
+                    '  ',
+                    element.selectionStart,
+                    element.selectionStart,
+                    'end'
+                  )
+            };
+        }
+        
+        enableTab('paste-input')
+    </script>
+{% endblock %}

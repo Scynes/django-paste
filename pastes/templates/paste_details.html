@@ -1,9 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'content_container.html' %}
 
-{% block content %}
+{% block primary_content %}
 
-    <pre>
-        <code class="line-numbers language-{{ syntax }}">{{ paste }}</code>
-    </pre>
+<div class="flex justify-center align-center width-100">
+    <div id="paste-display-container">
+        <pre>
+            <code class="line-numbers language-{{ syntax }}">{{ paste }}</code>
+        </pre>
+    </div>
+</div>
 
-{% endblock content %}
+{% endblock primary_content %}
