@@ -209,7 +209,7 @@ textarea, input, select {
 /* ============= *
  *  APPLICATION  *
  * ============= */
-a:is(.nav-item):hover {
+a:is(.nav-item, #account-nav):hover {
     transform: scale(1.5);
 }
 
@@ -301,6 +301,33 @@ footer > h2 {
     gap: 2rem;
 }
 
+.auth-form {
+    width: 30rem;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    background-color: var(--bar-background-col);
+    border-bottom: 0.75rem solid var(--bar-background-col-contrast);
+    box-shadow: 0 10px 1rem 5px var(--bar-background-col-shadow);
+    transition: 0.25s;
+}
+
+.auth-form > h1 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.auth-form > input {
+    width: 100%;
+}
+
+.auth-form:hover {
+    transform: scale(1.3);
+}
+
+.auth-form-container {
+    align-self: center;
+}
+
 .nav-item {
     min-width: 7rem;
     line-height: 4.5rem;
@@ -382,6 +409,10 @@ img {
 }
 
 /* Dropdown Styles */
+#account-nav {
+    transition: 0.3s;
+}
+
 .dropdown {
     position: relative;
 }
