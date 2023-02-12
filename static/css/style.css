@@ -380,3 +380,34 @@ img {
     border-radius: 10px;
     background-color: var(--secondary-font-col);
 }
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 15px black;
+}
+
+.dropdown-item {
+    display: block;
+    color: black;
+}
+
+.dropdown-item:hover {
+    background-color: var(--secondary-font-col);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
