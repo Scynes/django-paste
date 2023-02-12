@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout, authenticate
 from django.views.generic.edit import View
 from django.contrib.auth.forms import AuthenticationForm
 
@@ -54,3 +54,11 @@ class Login(View):
         context = { 'form': form }
 
         return render(request, 'login.html', context)
+
+class Logout(View):
+
+    def get(self, request):
+
+        logout(request)
+
+        return redirect('upload')

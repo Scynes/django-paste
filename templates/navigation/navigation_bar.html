@@ -2,11 +2,11 @@
 <nav class="flex margin-bottom-gap bar-bg-col">
     <img class="nav-item" src={% static 'images/python-logo.png' %} alt="">
     <h1 class="nav-item primary-fc text-center">django paste</h1>
-    <a href="/" class="nav-item text-center">New Paste</a>
+    <a href={% url 'upload' %} class="nav-item text-center">New Paste</a>
     <a href="#" class="nav-item text-center">About</a>
     {% if user.is_authenticated %}
-        <a href="#" class="nav-item text-center">Log Out</a>
+        <a href={% url 'logout' %} class="nav-item text-center">Log Out</a>
     {% else %}
-        <a href="#" class="nav-item text-center">Log In</a>
+        <a href={% url 'login' %} class="nav-item text-center">Log In</a>
     {% endif %}
 </nav>
