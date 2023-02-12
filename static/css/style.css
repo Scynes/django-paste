@@ -20,7 +20,12 @@ body, html {
 }
 
 .hljs-ln-numbers {
-    padding-right: 1rem !important;
+    padding-right: 0.5rem !important;
+    border-right: 1px solid;
+}
+
+.hljs-ln-line.hljs-ln-code {
+    padding-left: 1rem !important;
 }
 
 /* ======== *
@@ -53,6 +58,11 @@ body, html {
 body {
     background-color: #ffffff;
     overflow-x: hidden;
+}
+
+code {
+    border-radius: 0.4rem;
+    max-height: 30rem;
 }
 
 a {
@@ -298,7 +308,15 @@ footer > h2 {
 }
 
 #paste-display-container {
-    min-width: 40rem;
+    width: 100%;
+}
+
+#paste-display-container-wrapper {
+    padding: 2rem;
+    width: 100%;
+    max-width: 60rem;
+    border-bottom: 0.75rem solid var(--bar-background-col-contrast);
+    box-shadow: 0 10px 1rem 5px var(--bar-background-col-shadow);
 }
 
 #switches {
@@ -401,13 +419,13 @@ img {
     border-left: 0.5rem solid grey;
 }
 
-#paste-output::-webkit-scrollbar {
+code::-webkit-scrollbar {
     width: 0.4rem;
     padding-right: 1rem;
     background-color: rgba(255, 255, 255, 0);
 }
 
-#paste-output::-webkit-scrollbar-thumb {
+code::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: var(--secondary-font-col);
 }
