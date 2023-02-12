@@ -1,5 +1,5 @@
 {% extends 'content_container.html' %}
-
+{% load static %}
 {% block primary_content %}
     <div id="paste-form-container" class="grid width-100 border-radius-full align-start bar-bg-col primary-fc">
         <form class="flex column width-100" action="#" method="POST">
@@ -48,4 +48,5 @@
             </pre>
         </div>
     </div>
+    <script src={% static 'scripts/code-mirror.js' %}></script>
 {% endblock primary_content %}
