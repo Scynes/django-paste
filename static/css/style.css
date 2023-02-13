@@ -67,8 +67,6 @@ code:not(#paste-body) {
 }
 
 code:is(#paste-body) {
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
     position: absolute;
 }
 
@@ -362,6 +360,20 @@ footer > h2 {
 #trash-button {
     height: 1.5rem;
     background-color: red;
+}
+
+#expiration {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    background-color: #e9edb8;
+}
+
+#expiration > h3 {
+    padding: 0.25rem;
+}
+
+#expiration > h3:first-child {
+    background-color: yellow;
 }
 
 #copy-button:hover, #trash-button:hover {

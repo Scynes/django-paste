@@ -30,7 +30,6 @@ class PasteView(View):
             if paste.user == request.user:
                 context['owner'] = paste.user.id
             
-
             return render(request, 'paste_details.html', context)
 
         else:

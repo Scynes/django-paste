@@ -13,6 +13,10 @@
             {% endif %}
         </div>
         <pre style="position:relative;"><code id="paste-body" class="height-100 width-100 line-numbers language-{{ syntax }}">{{ paste.body }}</code></pre>
+        <div id="expiration" class="flex overflow-hidden">
+            <h3 class="inline-block">Expiration: </h3>
+            <h3 class="inline-block width-100 text-center">{{ paste.created_at }}</h3>
+        </div>
     </div>
 </div>
 <script>
@@ -28,6 +32,5 @@
         document.execCommand('copy');
         text.remove();
     }
-
 </script>
 {% endblock primary_content %}
