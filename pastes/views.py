@@ -29,12 +29,15 @@ class PasteView(View):
 
             if paste.user == request.user:
                 context['owner'] = paste.user.id
+
+            if paste.burn == True:
+                paste.delete()
             
             return render(request, 'paste_details.html', context)
 
         else:
 
-            return HttpResponse('No paste was found!')
+            return render(request, 'not_found.html')
 
     def delete(self, request, id):
         
