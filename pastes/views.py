@@ -25,10 +25,11 @@ class PasteView(View):
             paste = link_result.content_object
 
             syntax = Paste.get_syntax_value(paste.syntax)
+            context = { 'paste': paste, 'syntax': syntax }
 
-            print(paste.user.id == request.user.id)
-
-            context = { 'paste': paste, 'syntax': syntax, 'owner': paste.user.id == request.user.id }
+            if paste.user == request.user:
+                context['owner'] = paste.user.id
+            
 
             return render(request, 'paste_details.html', context)
 
@@ -45,8 +46,6 @@ class PasteUploadView(View):
         return render(request, 'paste_upload.html', context)
 
     def post(self, request):
-
-        print(request.POST)
         
         form_data = PasteForm(request.POST)
 
