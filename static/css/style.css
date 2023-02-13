@@ -22,6 +22,7 @@ body, html {
 .hljs-ln-numbers {
     padding-right: 0.5rem !important;
     border-right: 1px solid;
+    color: var(--secondary-font-col);
 }
 
 .hljs-ln-line.hljs-ln-code {
@@ -66,6 +67,8 @@ code:not(#paste-body) {
 }
 
 code:is(#paste-body) {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
     position: absolute;
 }
 
@@ -327,12 +330,13 @@ footer > h2 {
     border-right: 0.5rem solid var(--bar-background-col-contrast);
 }
 
-#paste-display-container {
-    grid-template-rows: auto 1fr;
+#paste-info {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
 }
 
-#paste-display-container > div:first-child {
-    margin-bottom: 0.5rem;
+#paste-display-container {
+    grid-template-rows: auto 1fr;
 }
 
 #paste-display-container-wrapper {

@@ -4,12 +4,15 @@
 
 <div id="paste-display-container-wrapper" class="bar-bg-col border-radius-full">
     <div id="paste-display-container" class="grid height-100">
-        <div class="flex align-center bg-primary-col overflow-hidden border-radius-half">
+        {% if owner %}
+            <h1>WoW!</h1>
+        {% endif %}
+        <div id="paste-info" class="flex align-center bg-primary-col overflow-hidden">
             <h2 class="inline-block bg-secondary-col padding-half-rem">Title: </h2>
             <h2 class="inline-block bg-primary-col padding-half-rem width-100 text-center">{{ paste.title }}</h2>
             <img id="copy-button" class="pointer bg-secondary-col" src={% static 'images/copy.svg' %} alt="" onclick="copy()">
         </div>
-            <pre style="position:relative;"><code id="paste-body" class="height-100 width-100 line-numbers language-{{ syntax }}">{{ paste.body }}</code></pre>
+        <pre style="position:relative;"><code id="paste-body" class="height-100 width-100 line-numbers language-{{ syntax }}">{{ paste.body }}</code></pre>
     </div>
 </div>
 <script>

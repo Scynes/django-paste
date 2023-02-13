@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
 
 from .forms import PasteForm
@@ -26,7 +26,9 @@ class PasteView(View):
 
             syntax = Paste.get_syntax_value(paste.syntax)
 
-            context = { 'paste': paste, 'syntax': syntax }
+            print(paste.user.id == request.user.id)
+
+            context = { 'paste': paste, 'syntax': syntax, 'owner': paste.user.id == request.user.id }
 
             return render(request, 'paste_details.html', context)
 
@@ -65,8 +67,11 @@ class PasteUploadView(View):
         link = Link.create(ContentType.objects.get_for_model(Paste), paste.id)
         link.save()
 
+        if request.user.is_authenticated:
+            paste.user = request.user
+
         # Save the paste
         paste.link = link
         paste.save()
 
-        return HttpResponse(link.short_uuid)
+        return redirect(f'/{link.short_uuid}')
