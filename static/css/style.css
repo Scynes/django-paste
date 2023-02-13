@@ -60,9 +60,13 @@ body {
     overflow-x: hidden;
 }
 
-code {
+code:not(#paste-body) {
     border-radius: 0.4rem;
     max-height: 20rem;
+}
+
+code:is(#paste-body) {
+    position: absolute;
 }
 
 a {
@@ -206,6 +210,10 @@ textarea, input, select {
     align-items: flex-end;
 }
 
+.justify-end:is(.flex) {
+    justify-content: end;
+}
+
 .flex.column {
     flex-direction: column;
 }
@@ -320,7 +328,11 @@ footer > h2 {
 }
 
 #paste-display-container {
-    width: 100%;
+    grid-template-rows: auto 1fr;
+}
+
+#paste-display-container > div:first-child {
+    margin-bottom: 0.5rem;
 }
 
 #paste-display-container-wrapper {
@@ -333,6 +345,18 @@ footer > h2 {
 
 #switches {
     gap: 2rem;
+}
+
+#copy-button {
+    width: 1.5rem !important;
+    margin-right: 0.6rem;
+    padding: 0.1rem;
+    border-radius: 0.3rem;
+    transition: 0.25s;
+}
+
+#copy-button:hover {
+    transform: scale(1.35);
 }
 
 .auth-form {
@@ -373,7 +397,7 @@ footer > h2 {
     margin-left: 2rem;
 }
 
-img {
+.logo-img {
     min-width: 5.5rem !important;
     width: 5.5rem;
 }
