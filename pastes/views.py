@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import render, redirect
 from django.views.generic import View
+from . import latest_records
 
 from .forms import PasteForm
 from .models import Paste
@@ -30,6 +31,9 @@ class PasteView(View):
 
             syntax = Paste.get_syntax_value(paste.syntax)
             context = { 'paste': paste, 'syntax': syntax }
+
+            if request.user.is_authenticated:
+                context['recent_pastes'] = latest_records.get_latest_records_for_user(Paste, request.user, 10)
 
             if paste.user == request.user:
                 context['owner'] = paste.user.id
@@ -67,6 +71,9 @@ class PasteUploadView(View):
     def get(self, request):
 
         context = { 'form': PasteForm() }
+
+        if request.user.is_authenticated:
+            context['recent_pastes'] = latest_records.get_latest_records_for_user(Paste, request.user, 10)
         
         return render(request, 'paste_upload.html', context)
 

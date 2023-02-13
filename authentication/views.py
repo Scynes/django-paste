@@ -3,6 +3,9 @@ from django.contrib.auth import login, logout, authenticate
 from django.views.generic.edit import View
 from django.contrib.auth.forms import AuthenticationForm
 
+from pastes import latest_records
+from pastes.models import Paste
+
 from .forms import RegisterForm
 
 class Register(View):
@@ -29,6 +32,9 @@ class Register(View):
 
         context = { 'form': form }
 
+        if request.user.is_authenticated:
+            context['recent_pastes'] = latest_records.get_latest_records_for_user(Paste, request.user, 10)
+
         return render(request, 'register.html', context)
 
 class Login(View):
@@ -52,6 +58,9 @@ class Login(View):
         form = AuthenticationForm(request)
 
         context = { 'form': form }
+
+        if request.user.is_authenticated:
+            context['recent_pastes'] = latest_records.get_latest_records_for_user(Paste, request.user, 10)
 
         return render(request, 'login.html', context)
 

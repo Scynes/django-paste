@@ -165,6 +165,10 @@ textarea, input, select {
     padding: 0.5rem;
 }
 
+.padding-one-rem {
+    padding: 1rem;
+}
+
 .overflow-hidden {
     overflow: hidden;
 }
@@ -313,6 +317,14 @@ footer > h2 {
 #recent-pastes {
     border-radius: 1rem 0 0 1rem;
     border-left: 0.5rem solid var(--bar-background-col-contrast);
+}
+
+#recent-pastes > div {
+    display: none;
+}
+
+#recent-pastes.side-bar:hover div {
+    display: grid;
 }
 
 #paste-form-container {
@@ -528,4 +540,15 @@ code::-webkit-scrollbar-thumb {
 
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+
+.widget-item {
+    border-radius: 0.25rem;
+    transition: 0.25s;
+    max-height: 5rem;
+}
+
+.widget-item:hover {
+    transform: scale(0.8);
+    background-color: var(--secondary-font-col);
 }

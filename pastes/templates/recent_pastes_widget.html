@@ -1,4 +1,8 @@
 <h2 class="text-vertical">Recent Pastes</h2>
-<div>
-    Hello
+<div class="height-100 padding-one-rem">
+    {% for recent_paste in recent_pastes %}
+
+        <a class="widget-item" href={% url 'view' recent_paste.link.short_uuid%}><h3 class="text-center">{{ recent_paste.title }}</h3></a>
+
+    {% endfor %}
 </div>
