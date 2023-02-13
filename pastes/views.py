@@ -24,6 +24,10 @@ class PasteView(View):
             # Get the Paste object associated with the Link
             paste = link_result.content_object
 
+            if paste.private == True and paste.user != request.user:
+
+                return render(request, 'error_page.html', { 'error': 'You do not have permission to view this paste! Please login.' })
+
             syntax = Paste.get_syntax_value(paste.syntax)
             context = { 'paste': paste, 'syntax': syntax }
 
@@ -38,7 +42,7 @@ class PasteView(View):
 
         else:
 
-            return render(request, 'not_found.html')
+            return render(request, 'error_page.html', { 'error': 'Oops! Paste does not exist.' })
 
     def delete(self, request, id):
         
