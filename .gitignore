@@ -2,8 +2,7 @@
 
 .env
 
-Pipfile.lock
-
 
 migrations
 db.sqlite3
+staticfiles
