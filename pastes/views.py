@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import render, redirect
@@ -35,6 +35,24 @@ class PasteView(View):
         else:
 
             return HttpResponse('No paste was found!')
+
+    def delete(self, request, id):
+        
+        record = Paste.objects.filter(pk=id).first()
+
+        if record:
+
+            if record.user != request.user:
+
+                return JsonResponse({'message': 'Oops! The paste was not located.'}, status=401)
+
+            record.delete()
+
+            return JsonResponse({'message': 'Successfully deleted! The paste will no longer be viewable if you refresh this page.'}, status=202)
+
+        else:   
+        
+            return JsonResponse({'message': 'Oops! The paste was not located.'}, status=404)
 
 class PasteUploadView(View):
     

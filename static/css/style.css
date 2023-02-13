@@ -323,6 +323,10 @@ footer > h2 {
     grid-row: span 2;
 }
 
+#deleted-success {
+    background-color: rgba(255, 0, 0, 0.349);
+}
+
 #news {
     border-radius: 0 1rem 1rem 0;
     border-right: 0.5rem solid var(--bar-background-col-contrast);
@@ -334,7 +338,7 @@ footer > h2 {
 }
 
 #paste-display-container {
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
 }
 
 #paste-display-container-wrapper {

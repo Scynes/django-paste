@@ -34,3 +34,8 @@ class Paste (models.Model):
             if syntax in element:
                 
                 return element[1].lower()
+
+    def delete(self, *args, **kwargs):
+
+        self.link.delete()
+        super().delete(*args, **kwargs)

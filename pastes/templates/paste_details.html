@@ -9,8 +9,11 @@
             <h2 class="inline-block bg-primary-col padding-half-rem width-100 text-center">{{ paste.title }}</h2>
             <img id="copy-button" class="pointer bg-secondary-col" src={% static 'images/copy.svg' %} alt="" onclick="copy()">
             {% if owner %}
-                <img id="trash-button" class="pointer" src={% static 'images/trash.svg' %} alt="" onclick="copy()">
+                <img id="trash-button" class="pointer" src={% static 'images/trash.svg' %} alt="" onclick="deleteRecord(this)" data-id={{ paste.id }}>
             {% endif %}
+        </div>
+        <div>
+            <h4 id="deleted-success" class="text-center primary-fc"></h4>
         </div>
         <pre style="position:relative;"><code id="paste-body" class="height-100 width-100 line-numbers language-{{ syntax }}">{{ paste.body }}</code></pre>
         <div id="expiration" class="flex overflow-hidden">
@@ -31,6 +34,37 @@
         text.select();
         document.execCommand('copy');
         text.remove();
+    }
+
+    const deleteRecord = async event => {
+
+        const record = event.getAttribute('data-id');
+        const response = await fetch(`${record}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                'X-CSRFToken': getCSRFToken()
+            }
+        });
+
+        const result = await response.json();
+
+        if (response.status == 202) {
+            document.getElementById('deleted-success').innerText = result.message;
+        }
+
+        return console.log(result)
+    }
+
+    const getCSRFToken = () => {
+
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; csrftoken=`);
+
+        if (parts.length === 2) 
+            return parts.pop().split(';').shift();
+
+        return null;
     }
 </script>
 {% endblock primary_content %}
