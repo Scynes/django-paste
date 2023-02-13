@@ -30,7 +30,8 @@ class PasteView(View):
             if paste.user == request.user:
                 context['owner'] = paste.user.id
 
-            if paste.burn == True:
+            # Make sure that a redirect doesn't trigger burning...
+            if 'HTTP_REFERER' not in request.META and paste.burn == True:
                 paste.delete()
             
             return render(request, 'paste_details.html', context)
@@ -47,7 +48,7 @@ class PasteView(View):
 
             if record.user != request.user:
 
-                return JsonResponse({'message': 'Oops! The paste was not located.'}, status=401)
+                return JsonResponse({'message': 'Unauthorized. You do not have permissions to delete this paste!'}, status=401)
 
             record.delete()
 
